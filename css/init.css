@@ -1,0 +1,72 @@
+body,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+dl,
+dd,
+form,
+fieldset,
+legend,
+input,
+textarea,
+select,
+figure {
+	margin: 0;
+	padding: 0;
+}
+
+html,body {
+	font: 12px "微软雅黑", "Arial Narrow", HELVETICA;
+	background: #fff;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+}
+
+em {
+	font-style: normal;
+}
+
+li {
+	list-style: none;
+}
+
+img {
+	border: 0;
+	vertical-align: middle;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* 清除浮动 */
+.clearfix {
+	content: "";
+	clear: both;
+	overflow: hidden;
+	display: block;
+}
+
+@media only screen and (min-width:320px) and (max-width: 374px) {
+	body {
+		font-size: 14px;
+	}
+}
+
+@media only screen and (min-width:375px) and (max-width: 414px) {
+	body {
+		font-size: 16px;
+	}
+}
