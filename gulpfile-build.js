@@ -14,6 +14,12 @@ async function img(){
   .pipe(dest('./dist/img'))
 }
 
+//处理font文件
+async function font(){
+  src('./font/*.*')
+  .pipe(dest('.dist/font'))
+}
+
 // 处理JS
 async function script(){
   src('./js/*.js')
@@ -55,6 +61,7 @@ async function html(){
 task('build', async ()=>{
   await delDist()
   await img()
+  await font()
   await script()
   await sass()
   await html()
