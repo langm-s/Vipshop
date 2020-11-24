@@ -23,13 +23,24 @@
             <div id="login">
                 <div class="login-way">
                     <i></i>
-                    <span class="active">扫码登录</span>
-                    <span>账户登录</span>
+                    <span class="active scan">扫码登录</span>
+                    <span class="uplogin">账户登录</span>
                 </div>
-                <div class="login">
+                <div class="login scan-login" style="display: block;">
                     <div class="ewm"><img src="img/login-ewm.png" alt=""></div>
+                    <p>打开<i>唯品会个人中心</i>，扫一扫登录</p>
                 </div>
-                <p>打开<i>唯品会个人中心</i>，扫一扫登录</p>
+                <div class="login account-login">
+                    <div class="input"><i class="iconfont icon-wode"></i>
+                        <input type="text" placeholder="手机号/用户名/邮箱" class="user">
+                    </div>
+                    <div class="input" id="pwd"><i class="iconfont icon-hide"></i>
+                        <input type="password" placeholder="密码" class="pwd">
+                        <p class="message"></p>
+                    </div>
+                    <p><a href="#" class="txt-test">短信验证登录</a><a href="#" class="forget">忘记密码</a></p>
+                    <button class="submit">登录</button>
+                </div>
                 <div class="login-footer">
                     <div class="iconfont icon-weixin">
                         <i></i>
@@ -45,5 +56,12 @@
             </div>
         </div>
     </div>
+    <div class="c-footer container">
+        <p class="c-copyright">Copyright 2008-2020 vip.com，All Rights Reserved ICP证：粤 B2-20080329</p>
+    </div>
+
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
