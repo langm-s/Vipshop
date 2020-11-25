@@ -2,6 +2,9 @@
   width: 1170px;
   margin: 0 auto;
 }
+.pink {
+  color: #fa2a83;
+}
 // 顶部导航
 .nav {
   width: 100%;
@@ -308,39 +311,66 @@ header {
 }
 .select {
   border: 1px solid #ccc;
-  border-top: 0;
+  border-bottom: 0;
   .selected {
-    .selected-content {
-      float: left;
-      min-width: 140px;
-      max-width: 250px;
-      height: 22px;
-      line-height: 22px;
-      padding-left: 10px;
-      margin: 13px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      b {
-        margin-left: 4px;
-        color: #fa2a83;
-      }
-      .del-sle {
-        float: right;
-        width: 22px;
+    position: relative;
+    display: none;
+    min-height: 50px;
+    .selectedlist {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      width: 711px;
+      padding-bottom: 13px;
+      .selected-content {
+        min-width: 140px;
+        max-width: 250px;
         height: 22px;
-        border: 0;
+        line-height: 22px;
+        padding-left: 10px;
+        margin: 13px 10px 0 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        b {
+          margin-left: 4px;
+          color: #fa2a83;
+        }
+        .del-sle {
+          float: right;
+          width: 22px;
+          height: 22px;
+          border: 0;
+          outline: none;
+        }
+        .del-sle:hover {
+          cursor: pointer;
+          color: #fff;
+          background-color: #fa2a83;
+        }
       }
-      .del-sle:hover {
-        cursor: pointer;
-        color: #fff;
-        background-color: #fa2a83;
-      }
+    }
+    .clear-choice {
+      // display: none;
+      outline: none;
+      position: absolute;
+      width: 80px;
+      height: 20px;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      line-height: 18px;
+      color: #666;
+      padding: 0;
+      font-size: 12px;
+      background-color: #fff;
+      top: 13px;
+      right: 15px;
+      cursor: pointer;
     }
   }
   .datalist {
     width: 100%;
-    height: 50px;
-    border-top: 1px solid #ccc;
+    min-height: 50px;
+    border-bottom: 1px solid #ccc;
     h3 {
       float: left;
       width: 98px;
@@ -361,6 +391,9 @@ header {
         margin-right: 50px;
       }
       a:hover {
+        color: #fa2a83;
+      }
+      .pink {
         color: #fa2a83;
       }
     }
@@ -385,5 +418,201 @@ header {
         margin: 0 5px;
       }
     }
+  }
+  .hide-datalist {
+    display: none;
+  }
+}
+// 展开/关闭按钮
+.command {
+  position: relative;
+  // width: 100%;
+  height: 27px;
+  .command-btn {
+    cursor: pointer;
+    position: absolute;
+    width: 118px;
+    height: 26px;
+    top: -1px;
+    left: 525px;
+    border: 1px solid #ccc;
+    border-top-color: #fff;
+    border-radius: 0;
+    background-color: #fff;
+    font-size: 12px;
+    outline: none;
+    i {
+      font-size: 12px;
+    }
+  }
+  .collapse {
+    display: none;
+  }
+}
+// 分页
+.devidepages {
+  height: 46px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background-color: #eee;
+  margin-top: 20px;
+}
+// 商品列表
+.goodsbox {
+  width: 1190px;
+  margin-top: 20px;
+  // overflow: hidden;
+  .goodslist {
+    display: flex;
+    flex-wrap: wrap;
+    .goods {
+      width: 218px;
+      height: 340px;
+      border: 1px solid #eee;
+      box-sizing: border-box;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      a {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        img {
+          display: block;
+          width: 216px;
+          // height: 218px;
+        }
+        .info {
+          width: 100%;
+          height: 122px;
+          padding: 0 12px;
+          box-sizing: border-box;
+          .goods-price {
+            height: 30px;
+            padding-bottom: 12px;
+            span,h4,.ori-price,.acount {
+              display: inline-block;
+              vertical-align: bottom;
+              text-align: left;
+              line-height: 42px;
+            }
+            span {
+              width: 44px;
+              height: 18px;
+              background-color: #fa2a83;
+              color: #fff;
+              text-align: center;
+              border-radius: 9px;
+              line-height: 18px;
+              margin-bottom: 12px;
+            }
+            h4 {
+              width: 52px;
+              font-size: 20px;
+              font-family: arial;
+              font-weight: 700;
+            }
+            .ori-price {
+              width: 44px;
+              color: #999;
+              font-size: 14px;
+              font-family: arial;
+              b {
+                text-decoration: line-through;
+              }
+            }
+            .acount {
+              width: 34px;
+              color: #999;
+              font-size: 14px;
+              font-family: arial;
+              margin-left: 4px;
+            }
+          }
+          .goods-msg {
+            min-height: 36px;
+            line-height: 18px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            color: #666;
+            margin-bottom: 8px;
+          }
+        }
+      }
+    }
+    .borders {
+      display: none;
+      position: absolute;
+      width: 240px;
+      height: 360px;
+      top: -12px;
+      left: -12px;
+      border: 1px solid #fa2a83;
+    }
+  }
+}
+// 侧边栏
+.aside-right {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 101;
+  width: 36px;
+  height: 100%;
+  color: #fff;
+  text-align: center;
+  background-color: #262626;
+  i {
+    width: 36px;
+    line-height: 30px;
+    font-size: 24px;
+    color: #fff;
+  }
+  .account {
+    display: block;
+    width: 36px;
+    font-size: 14px;
+    margin-top: 250px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  .aside-car {
+    width: 36px;
+    background-color: #fa2a83;
+    padding: 15px 0;
+    p {
+      padding: 0 10px;
+      font-size: 14px;
+    }
+    span {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 8px;
+      background-color: #fff;
+      color: #fa2a83;
+      margin: 4px 0;
+    }
+    
+  }
+  .mg15 {
+    display: inline-block;
+    margin: 15px 0;
+  }
+  .point {
+    cursor: pointer;
+  }
+  .pink:hover {
+    background-color: #fa2a83;
+  }
+  .icon-bianjibi {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+  }
+  .icon-zhiding {
+    position: absolute;
+    bottom: 30px;
+    right: 0;
   }
 }
