@@ -62,6 +62,9 @@ strong,b {
 	font-weight: normal;
 }
 
+input,button {
+	outline: none;
+}
 /* 清除浮动 */
 .clearfix {
 	content: "";

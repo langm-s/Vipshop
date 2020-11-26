@@ -461,6 +461,7 @@ header {
 .goodsbox {
   width: 1190px;
   margin-top: 20px;
+  margin-bottom: 60px;
   // overflow: hidden;
   .goodslist {
     display: flex;
@@ -551,68 +552,30 @@ header {
     }
   }
 }
-// 侧边栏
-.aside-right {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 101;
-  width: 36px;
-  height: 100%;
-  color: #fff;
+// 底部分页
+.footer-wrap {
+  height: 46px;
+  line-height: 46px;
   text-align: center;
-  background-color: #262626;
-  i {
-    width: 36px;
-    line-height: 30px;
-    font-size: 24px;
-    color: #fff;
+  padding-top: 25px;
+  .total-items {
+    margin-right: 20px;
   }
-  .account {
-    display: block;
-    width: 36px;
-    font-size: 14px;
-    margin-top: 250px;
-    margin-bottom: 10px;
-    color: #fff;
-  }
-  .aside-car {
-    width: 36px;
-    background-color: #fa2a83;
-    padding: 15px 0;
-    p {
-      padding: 0 10px;
-      font-size: 14px;
-    }
-    span {
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      border-radius: 8px;
-      background-color: #fff;
-      color: #fa2a83;
-      margin: 4px 0;
-    }
-    
-  }
-  .mg15 {
+  a {
     display: inline-block;
-    margin: 15px 0;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
-  .point {
-    cursor: pointer;
+  a:hover {
+    border-color: #f898c2;
+    background-color: #faf8f8;
+    color: #fa2a83;
   }
-  .pink:hover {
+  .current {
+    color: #fff;
     background-color: #fa2a83;
-  }
-  .icon-bianjibi {
-    position: absolute;
-    bottom: 70px;
-    right: 0;
-  }
-  .icon-zhiding {
-    position: absolute;
-    bottom: 30px;
-    right: 0;
+    border-color: #fa2a83;
   }
 }

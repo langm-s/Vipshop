@@ -30,7 +30,7 @@ header {
       margin-right: 15px;
     }
   }
-  .banner {
+.banner {
     width: 1920px;
     height: 650px;
     margin: 0 auto;
@@ -229,11 +229,11 @@ header {
         }
       }
     }
+}
+.c-footer {
+  height: 78px;
+  line-height: 78px;
+  p {
+    text-align: center;
   }
-  .c-footer {
-    height: 78px;
-    line-height: 78px;
-    p {
-      text-align: center;
-    }
-  }
+}

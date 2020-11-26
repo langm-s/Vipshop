@@ -20,6 +20,12 @@ async function font(){
   .pipe(dest('.dist/font'))
 }
 
+//处理data文件
+async function data(){
+  src('./data/*.*')
+  .pipe(dest('.dist/data'))
+}
+
 // 处理JS
 async function script(){
   src('./js/*.js')
