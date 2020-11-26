@@ -455,4 +455,111 @@ function $1(selector){
 function $2(selector){
   return document.querySelectorAll(selector)
 }
+function promiseAjax(options){
+  return new Promise((resolve,reject)=>{
+    // data -> 'key=value&key=value'
+    // 1.创建数据交互对象
+    if (window.XMLHttpRequest) {
+      var xhr = new XMLHttpRequest() // 非IE5 6
+    } else {
+      var xhr = new ActiveXObject('Microsoft.XMLHTTP') // IE5 6
+    }
+
+    // 判断并格式化参数data
+    var data = ''
+    // if (typeof options.data === 'object' && options.data !== null && options.data.constructor === 'Object') {
+    if (isObject(options.data)) {
+      // 把对象格式化成 -> 'k1=v1&k2=v2&k3=v3'
+      for (var key in options.data) {
+        data += key+'='+options.data[key]+'&'
+      }
+      // data = 'k1=v1&k2=v2&k3=v3&'
+      data = data.substring(0,data.length-1)
+    }
+
+    if (typeof options.data === 'string') {
+      data = options.data
+    }
+
+    // 判断请求方式
+    if (options.type.toLowerCase() === 'get') {
+      var time = ''
+      time = options.cache ? '' : Date.now()
+      // 2.打开连接
+      xhr.open(options.type,options.url+'?'+data+'&_='+time,true) // 默认true，异步
+      // 3.发送请求
+      xhr.send(null) // get请求传null
+    }
+    if (options.type.toLowerCase() === 'post') {
+      // 2.打开连接
+      xhr.open(options.type,options.url,true) // 默认true，异步
+      // post 请不会有缓存问题
+
+      // 设置请求头，作用 模拟表单 post 请求提交数据，在send方法之前设置
+      xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+
+      // 3.发送请求
+      xhr.send(data) // post请求 要传递的参数在此传
+    }
+    
+    // 4.等待请求/响应状态
+    // xhr.readyState  请求状态，0-4状态改变会触发一个readystatechange事件
+    xhr.onreadystatechange = function (){
+      // console.log( xhr.readyState );// 2 3 4
+      if (xhr.readyState === 4) {// 请求完成
+      // xhr.status 响应状态
+        if (xhr.status === 200) {// OK 响应就绪
+          // xhr.responseText 响应的数据
+          // options.success(xhr.responseText)
+          // 支持dataType配置
+          if (options.dataType === 'json') {
+            var json = JSON.parse(xhr.responseText)
+            resolve(json)
+          } else if (options.dataType === 'xml') {
+            resolve(xhr.responseXML)
+          } else {
+            resolve(xhr.responseText)
+          }
+        } else {
+          // console.log(xhr.status)
+          reject(xhr.status)
+        }
+      }
+    }
+  })
+}
+
+// 设置cookie
+function setCookie(options){
+  options.days = options.days || 0
+  options.path = options.path || ''
+  if (options.days === 0) {
+    document.cookie = options.key+'='+options.val+'; path='+options.path
+  } else {
+    var d = new Date()
+    d.setDate(d.getDate()+options.days)
+    document.cookie = options.key+'='+options.val+'; expires='+d+'; path='+options.path
+  }
+}
+
+// 获取cookie
+function getCookie(key){
+  var arr = document.cookie.split('; ')
+  for (var i = 0, len = arr.length; i < len; i++){
+    var arr2 = arr[i].split('=')
+    if (arr2[0] === key) {
+      return arr2[1]
+    }
+  }
+  return null
+}
+
+// 删除cookie（cookie过期浏览器自动删除）
+function removeCookie(key){
+  setCookie({
+    key: key,
+    val: '123',
+    days: -2
+  })
+}
 
