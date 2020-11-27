@@ -7,20 +7,14 @@ $(function () {
     success: function (json) {
       var goodsStr = '';
       $.each(json, function (index, item) {
-        // goodsStr += `<div class="goods">
-        //   <img src="${item.imgurl}" alt="">
-        //   <p>${item.price}</p>
-        //   <h3>${item.title}</h3>
-        //   <div code="${item.code}">加入购物车</div>
-        // </div>`;
         goodsStr += `<div class="goods">
                       <a href="details.html">
                         <img src="${item.imgurl}" alt="">
                         <div class="info">
                           <div class="goods-price">
                             <span>特卖价</span>
-                            <h4>${item.price}</h4>
-                            <div class="ori-price">￥<b>${item.ori_price}</b></div>
+                            <h4>￥${item.price}</h4>
+                            <div class="ori-price">￥<b>${item.oriprice}</b></div>
                             <div class="acount">${item.discount}</div>
                           </div>
                           <div class="goods-msg">${item.message}</div>
@@ -30,9 +24,6 @@ $(function () {
                     </div>`;
       })
       $('.goodslist').html(goodsStr);
-    },
-    error: function(){
-      console.log('请求失败');
     }
   })
 
