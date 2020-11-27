@@ -164,7 +164,8 @@
           color: #999;
           width: 40px;
         }
-        a {
+        .location {
+          cursor: pointer;
           position: relative;
           width: 250px;
           text-indent: 5px;

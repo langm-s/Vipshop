@@ -8,7 +8,7 @@ $(function () {
       var goodsStr = '';
       $.each(json, function (index, item) {
         goodsStr += `<div class="goods">
-                      <a href="details.html">
+                      <a href="details.html" class="${item.code}">
                         <img src="${item.imgurl}" alt="">
                         <div class="info">
                           <div class="goods-price">
@@ -26,6 +26,19 @@ $(function () {
       $('.goodslist').html(goodsStr);
     }
   })
+// 
+// 
+// 
+// 
+//   
+  // 选择商品时  向浏览器本地存储商品码
+  $('.goodslist').on("click","a",function(){
+    setCookie({
+      key: "goodsCode",
+      val: $(this).attr("class")
+    })
+  })
+
 
 
   // 事件委托，展开关闭筛选栏的更多项目

@@ -66,7 +66,6 @@ $(function () {
 
     // 点击免费注册 跳转到注册页面
     $('.gotoregist').click(function(){
-        // location.href = 'regist.html';
-        window.open('regist.html'); 
+        location.href = 'regist.html';
     })
 })
