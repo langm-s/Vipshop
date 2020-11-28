@@ -146,20 +146,20 @@ $(function () {
       $('.detail-right').html(rightStr);
     }
   })
-  
+
 
   // 选择省市区
-  $('.detail-right').on("click",".location",function () {
+  $('.detail-right').on("click", ".location", function () {
     $('.area-aside').css("display", "block");
   })
   // 点击关闭选地址框
-  $('.detail-right').on("click",".close",function (eve) {
+  $('.detail-right').on("click", ".close", function (eve) {
     var e = eve || event;
     e.stopPropagation();//阻止事件冒泡
     $('.area-aside').css('display', 'none');
   })
   // 所选地址对应起来
-  $('.detail-right').on("click",".province",function (eve) {
+  $('.detail-right').on("click", ".province", function (eve) {
     var e = eve || event;
     e.stopPropagation();//阻止事件冒泡
     var target = e.target;
@@ -169,7 +169,7 @@ $(function () {
     }
   })
   // 选择颜色
-  $('.detail-right').on("click",".color",function (eve) {
+  $('.detail-right').on("click", ".color", function (eve) {
     var e = eve || event;
     e.stopPropagation();//阻止事件冒泡
     var target = e.target;
@@ -179,24 +179,73 @@ $(function () {
     }
   })
   // 选择尺码
-  $('.detail-right').on("click",".size",function (eve) {
+  $('.detail-right').on("click", ".size", function (eve) {
     var e = eve || event;
     e.stopPropagation();//阻止事件冒泡
     var target = e.target;
     if ($(target).is("li")) {
       $(target).siblings().css("border", "")
+      $(target).siblings().removeClass("goodsSize")
       $(target).css("border", "2px solid #d11365");
+      $(target).addClass("goodsSize")
     }
   })
   // 选择数量
   // 数量增加
-  $('.detail-right').on("click",".add",function () {
+  $('.detail-right').on("click", ".add", function () {
     $('.num b').text(Number($('.num b').text()) + 1);
   })
   // 数量减少 大于2时触发
-  $('.detail-right').on("click",".decrease",function () {
+  $('.detail-right').on("click", ".decrease", function () {
     if (Number($('.num b').text()) > 1) {
       $('.num b').text(Number($('.num b').text()) - 1);
     }
+  })
+
+
+  // 点击添加购物车
+  // 保存商品码的数组
+  var codearr = getCookie("linkcarCode")? getCookie("linkcarCode").split() : [];
+  // 保存商品数量的的数组
+  var countarr = getCookie("goodsCount")? getCookie("goodsCount").split() : [];
+  // 保存商品尺码的的数组
+  var sizearr = getCookie("goodsSize")? getCookie("goodsSize").split() : [];
+  // 保存商品下标的的数组
+  var indexarr = getCookie("goodsIndex")? getCookie("goodsIndex").split(",") : [];
+  // 点击添加购物车  更新商品存储数据信息
+  $('.detail-right').on("click", ".button-box", function () {
+    console.log(indexarr)
+    if(!$('.goodsSize').text()){
+      alert("请选择尺码~");
+      return;
+    }
+    codearr.push(getCookie("goodsCode"));
+    countarr.push($('.num b').text());
+    sizearr.push($('.goodsSize').text());
+    indexarr.push(indexarr.length+1);
+    setCookie({
+      key: "linkcarCode",
+      val: codearr,
+      days: 99,
+    });
+    setCookie({
+      key: "goodsCount",
+      val: countarr,
+      days: 99,
+    });
+    setCookie({
+      key: "goodsSize",
+      val: sizearr,
+      days: 99,
+    });
+    setCookie({
+      key: "goodsIndex",
+      val: indexarr,
+      days: 99,
+    });
+    // 保存好数据后 数量 和尺码
+    $('.num b').text(1);
+    $('.goodsSize').css("border", "");
+    $('.goodsSize').removeClass("goodsSize");
   })
 })
