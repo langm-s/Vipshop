@@ -11,6 +11,10 @@
     .detail-left {
       float: left;
       width: 420px;
+      .bigimg{
+        width: 420px;
+        height: 420px;
+      }
       .imgplay {
         margin-top: 5px;
         height: 64px;
@@ -108,6 +112,7 @@
           }
           .ori-price {
             margin: 0 10px;
+            text-decoration: line-through;
           }
           img {
             width: 100px;
@@ -309,6 +314,7 @@
        height: 48px;
        margin: 40px 0 33px 40px;
        button {
+         cursor: pointer;
          float: left;
          height: 48px;
          border:  none;

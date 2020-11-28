@@ -26,11 +26,8 @@ $(function () {
       $('.goodslist').html(goodsStr);
     }
   })
-// 
-// 
-// 
-// 
-//   
+
+
   // 选择商品时  向浏览器本地存储商品码
   $('.goodslist').on("click","a",function(){
     setCookie({

@@ -270,6 +270,59 @@ header {
     }
   }
 }
+// 结算
+.calculate {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  margin-top: 30px;
+  .total {
+    position: relative;
+    height: 120px;
+    .amount-top {
+      position: absolute;
+      color: #999;
+      top: 30px;
+      right: 30px;
+      font-size: 14px;
+      b {
+        color: #f43499;
+      }
+      span {
+        margin-left: 50px;
+        color: #333;
+      }
+    }
+    .amount-bottom {
+      position: absolute;
+      color: #999;
+      font-size: 14px;
+      top: 60px;
+      right: 30px;
+      span {
+        color: #f43499;
+        margin-left: 40px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+  }
+  .cal {
+    height: 50px;
+    background-color: #eee;
+    .gotobuy {
+      cursor: pointer;
+      float: right;
+      width: 250px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      color: #fff;
+      font-size: 18px;
+      background-color: #f43499;
+    }
+  }
+}
 // 底部
 .footer {
   width: 100%;
