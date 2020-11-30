@@ -59,10 +59,7 @@ $(function () {
     // 点击增加
     if ($(target).is(".add")) {
       $(target).siblings('.num').text((Number($(target).siblings('.num').text()) + 1));
-      console.log($(target).parents('li').attr("index"));
-      console.log(goodsCount);
-      goodsCount[Number($(target).parents('li').attr("index"))-1] = String(Number(goodsCount[Number($(target).parents('li').attr("index"))])+1);
-      console.log(goodsCount);
+      goodsCount[Number($(target).parents('li').attr("index"))-1] = Number(goodsCount[Number($(target).parents('li').attr("index")-1)])+1;
       setCookie({
         key: "goodsCount",
         val: goodsCount,
@@ -70,13 +67,10 @@ $(function () {
       });
     }
     // 点击减少
-    if ($(target).is(".decrea se")) {
+    if ($(target).is(".decrease")) {
       if (Number($(target).siblings('.num').text()) > 1) {
         $(target).siblings('.num').text((Number($(target).siblings('.num').text()) - 1));
-        console.log(goodsCount);
-        console.log($(target).parents('li').attr("index"));
-        goodsCount[Number($(target).parents('li').attr("index"))-1] = String(Number(goodsCount[Number($(target).parents('li').attr("index"))])-1);
-        console.log(goodsCount);
+        goodsCount[Number($(target).parents('li').attr("index"))-1] = Number(goodsCount[Number($(target).parents('li').attr("index")-1)])-1;
         setCookie({
           key: "goodsCount",
           val: goodsCount,
@@ -101,6 +95,30 @@ $(function () {
     var target = e.target;
     if ($(target).is('.operate')) {
       $(target).parents('li').remove();
+      // goodsCode.splice(Number($(target).parents('li').attr("index"))-1,1)
+      // goodsCount.splice(Number($(target).parents('li').attr("index"))-1,1)
+      // goodsSize.splice(Number($(target).parents('li').attr("index"))-1,1)
+      // goodsIndex.splice(Number($(target).parents('li').attr("index"))-1,1)
+      // setCookie({
+      //   key: "goodsCount",
+      //   val: goodsCount,
+      //   days: 99,
+      // });
+      // setCookie({
+      //   key: "goodsCode",
+      //   val: goodsCode,
+      //   days: 99,
+      // });
+      // setCookie({
+      //   key: "goodsSize",
+      //   val: goodsSize,
+      //   days: 99,
+      // });
+      // setCookie({
+      //   key: "goodsIndex",
+      //   val: goodsIndex,
+      //   days: 99,
+      // });
     }
     // 计算总金额 总数量 
     var totalPrice = 0;

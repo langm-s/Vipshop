@@ -222,7 +222,7 @@ $(function () {
     codearr.push(getCookie("goodsCode"));
     countarr.push($('.num b').text());
     sizearr.push($('.goodsSize').text());
-    indexarr.push(indexarr.length+1);
+    indexarr.push(Number(indexarr[indexarr.length-1])+1);
     setCookie({
       key: "linkcarCode",
       val: codearr,
